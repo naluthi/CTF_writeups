@@ -65,24 +65,12 @@ loop_2_end:
 	cmp al, ' '
 	jne loop_2_start	
 	mov  byte ptr [rsp] ,0
-##open_for_read	 
-#	lea  rdi, [r10]
-#	mov rsi, 0
-#	mov rax, 2
-#	syscall
 #open_for_write
 	lea rdi, [r10]
 	mov rsi, 0100|01
 	mov rdx, 0777
 	mov rax, 2
 	syscall
-##read
-#	mov rdi, 3
-#	lea rsi, [rsp]
-#	mov rdx, 1000
-#	mov rax, 0
-#	syscall
-#	mov r10, rax
 #cal_len:
 	mov al, [rsp]
 	jmp loop_3_end
@@ -131,12 +119,6 @@ loop_5_end:
 	mov rdx, 19
 	mov rax, 1
 	syscall	
-##write response
-#	mov rdi, 4
-#	lea rsi, [rsp]
-#	mov rdx, r10
-#	mov rax, 1
-#	syscall
 #exit
 	mov rdi, 0
 	mov rax, 60
@@ -152,10 +134,6 @@ parent:
 	mov rdx, 0
 	mov rax, 43
 	syscall
-#exit
-#	mov rdi, 0
-#	mov rax, 60
-#	syscall
 
 .section .data
 sockaddr_in:
