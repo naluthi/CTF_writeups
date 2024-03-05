@@ -105,10 +105,6 @@ parent:
 	mov rdx, 0
 	mov rax, 43
 	syscall
-#exit
-#	mov rdi, 0
-#	mov rax, 60
-#	syscall
 
 .section .data
 sockaddr_in:
